@@ -1,0 +1,66 @@
+
+<html> 
+<head>
+    <title>Greeting Message</title> 
+    <style>
+#lbl {
+   @font-face {
+font-family: 'mbytepc';
+src: url(https://dl.dropbox.com/s/wu14gtbffx3auk3/Px437_MBytePC230_EGA%5B1%5D.ttf);
+}
+    color: #000;
+        height: 50px;
+width: 150px;
+padding: 8px;
+overflow: auto;
+    border-width:10px;
+border-style:solid;
+border-image: url("https://dl.dropbox.com/s/v8iy6a8feyq041p/blue%20ver.png") 8 fill round;
+}
+    text-align: center;
+    line-height: 1.5;
+    height:85%
+
+
+}
+#date{
+    font-size:large;
+}
+body{
+    background-color: aliceblue;
+}
+    </style>
+</head>
+<body>
+    <div id="lbl"></div>
+</body>
+
+<script>
+    var weekday = new Array(7);
+    weekday[0] = "sunday";
+    weekday[1] = "monday";
+    weekday[2] = "tuesday";
+    weekday[3] = "wednesday";
+    weekday[4] = "thursday";
+    weekday[5] = "friday";
+    weekday[6] = "saturday";
+
+    
+    var today = new Date();
+    var hrs = today.getHours();
+    var dayOfWeek = weekday[today.getDay()];
+    var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
+
+    var greet;
+
+    if (hrs < 12)
+      greet = 'good morning  :)';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'good afternoon <3';
+    else if (hrs >= 17 && hrs <= 24)
+      greet = 'good evening  :)';
+
+    document.getElementById('lbl').innerHTML =
+        greet+=`<div id="date"> it's ${date}</div>`;
+</script> 
+</html>
